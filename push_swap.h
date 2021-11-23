@@ -18,22 +18,26 @@ typedef struct t_list
     int is_dummy;
 } t_list;
 
-t_list*     append();
-
-
-void    prepare_lists(int argc, char ** argv, t_list *a_head, t_list *b_head);
+t_list* append();
+t_list* prepare_a_list(int argc, char ** argv, t_list *a_head);
+t_list* prepare_b_list(t_list *b_head);
+void    tend_values(int len, t_list* list, t_list *ranking);
 
 //controls
 void    swap(t_list* head);
 void    push(t_list* a_head, t_list* b_head);
 void    rotate(t_list *head);
+void    r_rotate(t_list *head);
+
+//sort
+int     len_list(t_list*    head);
+void    three_sort(t_list *dum);
+void    five_sort(t_list    *a_head, t_list *b_head);
 
 // check_funcs
 void    check_stacks(t_list *a_dummy, t_list *b_dummy);
 void    check_stack(t_list *a_head);
 void    check_stack_r(t_list *a_head);
 void    check_link(t_list *a_head);
-
-
 
 #endif

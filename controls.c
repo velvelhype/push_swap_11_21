@@ -1,8 +1,4 @@
 #include "push_swap.h"
-// swap
-// push
-// rotate
-// r_rotate
 
 void    swap(t_list* head)
 {
@@ -20,7 +16,7 @@ void    swap(t_list* head)
 
 t_list*    cut_out_list(t_list *cut)
 {
-    (cut->next)->prev = cut->prev; 
+    (cut->next)->prev = cut->prev;
     (cut->prev)->next = cut->next;
 
     cut->next = NULL;
@@ -29,22 +25,18 @@ t_list*    cut_out_list(t_list *cut)
     return  cut;
 }
 
-void    implant(t_list *pushing_list, t_list *b_head)
+void    implant(t_list *pushing_list, t_list *dst)
 {
-    // b_head pushing_list next
-    pushing_list->next = b_head->next;
-    pushing_list->prev = b_head;
+    pushing_list->next =dst->next;
+    pushing_list->prev =dst;
     (pushing_list->next)->prev = pushing_list;
-    b_head->next = pushing_list;
+    dst->next = pushing_list;
 }
-
 
 void    push(t_list* src, t_list* dst)
 {
     t_list  *pushing_list;
-    //cut out a hole to a
     pushing_list = cut_out_list(src->next);
-    //implant list to b
     implant(pushing_list, dst);
 
     if (dst->is_dummy == TRUE_A)
@@ -55,17 +47,25 @@ void    push(t_list* src, t_list* dst)
 
 void    rotate(t_list *head)
 {
-    int save;
-    int temp;
-    t_list *cur_list;
+    t_list *cut = cut_out_list(head->next);
 
-    save = (head->next)->value;
-    cur_list = head->prev;
-    while(cur_list->is_dummy == FALSE)
-    {
-        temp = cur_list->value;
-        cur_list->value = save;
-        save = temp;
-        cur_list = cur_list->prev;
-    }
+    implant(cut, head->prev);
+
+    if (head->is_dummy == TRUE_A)
+        write(1,"ra\n",3);
+    else if (head->is_dummy == TRUE_B)
+        write(1,"rb\n",3);
+}
+
+void    r_rotate(t_list *head)
+{
+    t_list *cut = cut_out_list(head->prev);
+    printf("we cut out %d\n", cut->value);
+
+    implant(cut, head);
+
+    if (head->is_dummy == TRUE_A)
+        write(1,"rra\n",4);
+    else if (head->is_dummy == TRUE_B)
+        write(1,"rrb\n",4);
 }

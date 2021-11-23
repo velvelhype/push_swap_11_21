@@ -22,6 +22,8 @@ void    check_stacks(t_list *a_dummy, t_list *b_dummy)
             printf("\t");
             a_dummy = a_dummy->next;
         }
+        else
+            printf("\t\t");
         if(b_end == FALSE)
         {
             printf("%d\t",b_dummy->value);
@@ -38,16 +40,19 @@ void    check_stacks(t_list *a_dummy, t_list *b_dummy)
 
 void    check_stack(t_list *head)
 {
+    write(1,"stack check : ", 14);
     if (head->is_dummy == TRUE_A)
-        write(1,"check_a\n",8);
+        write(1,"a\n",2);
     else if (head->is_dummy == TRUE_B)
-        write(1,"check_b\n",8);
+        write(1,"b\n",2);
     head = head->next;
     while(head->is_dummy == FALSE)
     {
         printf("%d\n",head->value);
-        head = head->next;    
+        head = head->next;
     }
+    char buf[10];
+    read(1,buf,1);
 }
 
 void    check_stack_r(t_list *head)
@@ -56,7 +61,7 @@ void    check_stack_r(t_list *head)
     while(head->is_dummy == FALSE)
     {
         printf("%d\n",head->value);
-        head = head->prev;    
+        head = head->prev;
     }
 }
 
@@ -68,6 +73,6 @@ void    check_link(t_list *head)
     while(c--)
     {
         printf("%d\n",head->value);
-        head = head->prev;    
+        head = head->prev;
     }
 }
