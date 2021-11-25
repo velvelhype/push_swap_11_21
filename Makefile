@@ -18,7 +18,8 @@ SRCS = checks.c \
 controls.c \
 prepare_list.c \
 push_swap.c \
-sorts.c
+sorts.c \
+quick_sort.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -1,20 +1,15 @@
 #include "push_swap.h"
 
-int    is_sorted(t_list *a)
+int    is_sorted(t_list *a_head)
 {
-    t_list *cur;
-    t_list *nxt;
-
-    cur = a->next;
-    nxt = cur->next;
-    while(cur->value < nxt->value && cur->is_dummy == FALSE)
+    a_head = a_head->next;
+    while((a_head->next)->is_dummy == FALSE)
     {
-        cur = cur->next;
-        nxt = nxt->next;
-        if (nxt->is_dummy == TRUE)
-            return 1;
+        if(a_head->value > (a_head->next)->value)
+            return (FALSE);
+        a_head = a_head->next;
     }
-    return 0;
+    return (TRUE);
 }
 
 void    two_sort(t_list *dum)
@@ -93,7 +88,7 @@ int     len_list(t_list*    head)
     return count;
 }
 
-void    push_min(t_list    *a_head, t_list *b_head)
+void    push_min(t_list *a_head, t_list *b_head)
 {
     t_list *min_list;
 

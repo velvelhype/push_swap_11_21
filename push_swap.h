@@ -16,6 +16,7 @@ typedef struct t_list
     struct t_list *prev;
     int value;
     int is_dummy;
+    int sort_status;
 } t_list;
 
 t_list* append();
@@ -30,12 +31,18 @@ void    rotate(t_list *head);
 void    r_rotate(t_list *head);
 
 //sort
+int     is_sorted(t_list *a_head);
+void    push_min(t_list    *a_head, t_list *b_head);
+t_list* find_min(t_list *list);
 int     len_list(t_list*    head);
 void    three_sort(t_list *dum);
 void    five_sort(t_list    *a_head, t_list *b_head);
 
 //quick_sort
 void    quick_sort(t_list *a_head, t_list *b_head);
+void    import_a(t_list *a_head, t_list *b_head);
+void    cleaner_b(t_list *a_head, t_list *b_head);
+
 
 // check_funcs
 void    check_stacks(t_list *a_dummy, t_list *b_dummy);
