@@ -60,7 +60,6 @@ void    rotate(t_list *head)
 void    r_rotate(t_list *head)
 {
     t_list *cut = cut_out_list(head->prev);
-    printf("we cut out %d\n", cut->value);
 
     implant(cut, head);
 

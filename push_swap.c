@@ -19,15 +19,16 @@ int main(int argc, char **argv)
     check_stack(a_head);
     b_head = prepare_b_list(b_head);
     //=====sorts
-    //two_sort
-    //three_sort
-    //four_sort
+    //quick_srot
+    if(argc - 1 > 5)
+        quick_sort(a_head, b_head);
     //five_sort
     if(argc - 1 > 3 && argc - 1 < 6)
         five_sort(a_head, b_head);
+    //three_sort
+    //two_sort
 
     //free
     free(b_head);
     return 0;
-
 }

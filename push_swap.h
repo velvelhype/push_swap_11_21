@@ -34,6 +34,9 @@ int     len_list(t_list*    head);
 void    three_sort(t_list *dum);
 void    five_sort(t_list    *a_head, t_list *b_head);
 
+//quick_sort
+void    quick_sort(t_list *a_head, t_list *b_head);
+
 // check_funcs
 void    check_stacks(t_list *a_dummy, t_list *b_dummy);
 void    check_stack(t_list *a_head);
