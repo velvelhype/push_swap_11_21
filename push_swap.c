@@ -21,7 +21,8 @@ int main(int argc, char **argv)
     // check_stack(a_head);
     // =====sorts
     // printf("quick_sort\n");
-    quick_sort(a_head, b_head);
+    quick_sort_2(a_head, b_head);
+    // quick_sort(a_head, b_head);
     // if(argc - 1 > 5)
         // quick_sort(a_head, b_head);
     //five_sort
@@ -35,7 +36,7 @@ int main(int argc, char **argv)
         printf("SORTED\n");
     else
         printf("FAIL\n");
-    // check_stack(a_head);
+    check_stack(a_head);
     //free
     free(b_head);
     return 0;

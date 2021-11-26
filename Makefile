@@ -19,7 +19,8 @@ controls.c \
 prepare_list.c \
 push_swap.c \
 sorts.c \
-quick_sort.c
+quick_sort_2.c
+# quick_sort.c
 
 OBJS = $(SRCS:.c=.o)
 
