@@ -21,7 +21,7 @@ void    init_import_a(t_list *a_head, t_list *b_head)
     }
 }
 
-void    cleaner_b(t_list *a_head, t_list *b_head)
+void    clean_up(t_list *a_head, t_list *b_head)
 {
     while(len_list(b_head) != 0)
     {
@@ -42,7 +42,7 @@ void    import_a(t_list *a_head, t_list *b_head)
         if((b_head->next)->value > pivot / 2)
             rotate(b_head);
     }
-    cleaner_b(a_head, b_head);
+    clean_up(a_head, b_head);
 }
 
 void    quick_sort(t_list *a_head, t_list *b_head)
@@ -50,7 +50,7 @@ void    quick_sort(t_list *a_head, t_list *b_head)
     init_import_a(a_head, b_head);
     printf("import done\n");
     // check_stacks(a_head, b_head);
-    cleaner_b(a_head, b_head);
+    clean_up(a_head, b_head);
     printf("cleaned\n");
     // check_stacks(a_head, b_head);
 }

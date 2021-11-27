@@ -9,6 +9,7 @@
 #define TRUE 1
 #define TRUE_A 3
 #define TRUE_B 4
+#define CLEANING_VOL 13
 
 typedef struct t_list
 {
@@ -41,7 +42,7 @@ void    five_sort(t_list    *a_head, t_list *b_head);
 //quick_sort
 void    quick_sort(t_list *a_head, t_list *b_head);
 void    import_a(t_list *a_head, t_list *b_head);
-void    cleaner_b(t_list *a_head, t_list *b_head);
+void    clean_up(t_list *a_head, t_list *b_head);
 
 // 2
 void    quick_sort_2(t_list *a_head, t_list *b_head);
