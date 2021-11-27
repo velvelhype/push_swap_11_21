@@ -17,16 +17,6 @@ void    init(t_list *a_head, t_list *b_head)
         if((a_head->next)->value < pivot)
         {
             push(a_head, b_head);
-            // if(export_vol > CLEANING_VOL)
-            // {
-            //     if((b_head->next)->value < pivot / 2)
-            //         rotate(b_head);
-            // }
-            // else
-            // {
-            //     if((b_head->next)->value > pivot / 2)
-            //         rotate(b_head);                
-            // }
         }
         else
         {
@@ -47,7 +37,7 @@ void    clean_up(t_list *a_head, t_list *b_head)
     }
 }
 
-int     cut_b(t_list *a_head, t_list *b_head)
+int     cut_half_b(t_list *a_head, t_list *b_head)
 {
     int pivot;
     int len;
@@ -88,7 +78,7 @@ void    process_b(t_list *a_head, t_list *b_head)
         clean_up(a_head, b_head);
     else
     {
-        ruminant_count = cut_b(a_head, b_head);
+        ruminant_count = cut_half_b(a_head, b_head);
         process_b(a_head, b_head);
         ruminant(ruminant_count, a_head, b_head);
     }
