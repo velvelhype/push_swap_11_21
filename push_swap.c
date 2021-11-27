@@ -16,6 +16,7 @@ int main(int argc, char **argv)
     tend_values(argc, a_head, a_copy);
     b_head = prepare_b_list(b_head);
     quick_sort_2(a_head, b_head);
+    // printf("sorted? : %d", is_sorted(a_head));
     free(b_head);
     return 0;
 }

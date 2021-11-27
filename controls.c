@@ -20,7 +20,7 @@ t_list*    cut_out_list(t_list *cut)
     (cut->prev)->next = cut->next;
 
     cut->next = NULL;
-    cut->prev =  NULL;
+    cut->prev = NULL;
 
     return  cut;
 }
