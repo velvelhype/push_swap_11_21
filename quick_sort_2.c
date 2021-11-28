@@ -1,5 +1,20 @@
 #include "push_swap.h"
 
+int     ship_amount(int pivot, t_list *head)
+{
+    int ship_count;
+
+    ship_count = 0;
+    head = head->next;
+    while(head->is_dummy == FALSE)
+    {
+        if(head->value > pivot)
+            ship_count++;
+        head = head->next;
+    }
+    return (ship_count);
+}
+
 void    init(t_list *a_head, t_list *b_head)
 {
     int pivot;
@@ -16,14 +31,12 @@ void    init(t_list *a_head, t_list *b_head)
     {
         if((a_head->next)->value < pivot)
         {
-            shipment--;
             push(a_head, b_head);
+            shipment--;
         }
         else
             rotate(a_head);
     }
-    // printf("init done %d %d\n", len_list(a_head), len_list(b_head));
-    // check_stacks(a_head, b_head);
     process_b(a_head, b_head);
     ruminant(ruminant_count, a_head, b_head);
 }
@@ -38,21 +51,27 @@ void     cut_half(t_list *a_head, t_list *b_head)
     ruminant_count = 0;
     pivot = (find_min(b_head))->value + len_list(b_head) / 2;
     len = len_list(b_head);
-    shipment = len / 2;
-    while(len--)
+    shipment = ship_amount(pivot, b_head);
+    // ruminant_count = shipment;
+
+    // check_stacks(a_head, b_head);
+    // printf("len %d ship %d ", len, shipment);
+
+    while(shipment)
     {
         if((b_head->next)->value > pivot)
         {
             push(b_head, a_head);
             ruminant_count++;
+            shipment--;
         }
         else
             rotate(b_head);
-        if(shipment == ruminant_count)
-            break;
     }
+    // printf("rumi %d\n", ruminant_count);
     // printf("cut done\n");
     // check_stacks(a_head, b_head);
+
     process_b(a_head, b_head);
     ruminant(ruminant_count, a_head, b_head);
 }
