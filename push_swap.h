@@ -20,6 +20,11 @@ typedef struct t_list
     int sort_status;
 } t_list;
 
+
+//pre_process
+void    pre_process(int argc, char **argv);
+
+//preparetions
 t_list* append();
 t_list* prepare_a_list(int argc, char ** argv, t_list *a_head);
 t_list* prepare_b_list(t_list *b_head);
