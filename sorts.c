@@ -73,6 +73,22 @@ t_list* find_min(t_list *list)
     return (min_list);
 }
 
+t_list* find_min_ranged(int range, t_list *list)
+{
+    t_list *min_list;
+
+    list = list->next;
+    min_list = list;
+    list = list->next;
+    while(--range)
+    {
+        if(list->value < min_list->value)
+            min_list = list;
+        list = list->next;
+    }
+    return (min_list);
+}
+
 int     len_list(t_list*    head)
 {
     int count;

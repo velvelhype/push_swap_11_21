@@ -31,10 +31,15 @@ void    push(t_list* a_head, t_list* b_head);
 void    rotate(t_list *head);
 void    r_rotate(t_list *head);
 
+// ss  : sa sb
+// rr  : ra rb
+// rrr : rra rrb
+
 //sort
 int     is_sorted(t_list *a_head);
 void    push_min(t_list    *a_head, t_list *b_head);
 t_list* find_min(t_list *list);
+t_list* find_min_ranged(int range, t_list *list);
 int     len_list(t_list*    head);
 void    three_sort(t_list *dum);
 void    five_sort(t_list    *a_head, t_list *b_head);

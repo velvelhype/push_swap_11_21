@@ -22,11 +22,11 @@ void    init(t_list *a_head, t_list *b_head)
     int ruminant_count;
     int shipment;
 
-    ruminant_count = 0;
     pivot = (find_min(a_head))->value + len_list(a_head) / 2;
     len = len_list(a_head);
     shipment = len / 2;
     ruminant_count = len - shipment;
+
     while(shipment)
     {
         if((a_head->next)->value < pivot)
@@ -44,42 +44,49 @@ void    init(t_list *a_head, t_list *b_head)
 void     cut_half(t_list *a_head, t_list *b_head)
 {
     int pivot;
-    int len;
     int ruminant_count;
     int shipment;
 
-    ruminant_count = 0;
     pivot = (find_min(b_head))->value + len_list(b_head) / 2;
-    len = len_list(b_head);
     shipment = ship_amount(pivot, b_head);
-    // ruminant_count = shipment;
+    ruminant_count = shipment;
 
-    // check_stacks(a_head, b_head);
-    // printf("len %d ship %d ", len, shipment);
+    // printf("cut! %d\n", pivot);
+    // check_stack(b_head);
 
     while(shipment)
     {
         if((b_head->next)->value > pivot)
         {
             push(b_head, a_head);
-            ruminant_count++;
             shipment--;
         }
         else
             rotate(b_head);
     }
-    // printf("rumi %d\n", ruminant_count);
-    // printf("cut done\n");
-    // check_stacks(a_head, b_head);
 
     process_b(a_head, b_head);
     ruminant(ruminant_count, a_head, b_head);
 }
 
+int     next_pivot(int range, t_list* head)
+{
+    int pivot;
+
+    pivot = (find_min_ranged(range, head))->value + range / 2;
+    return (pivot);
+}
+
 void    ruminant(int ruminant_count, t_list *a_head, t_list *b_head)
 {
+    int is_cleanable;
+    int pivot;
+
+
     while(ruminant_count--)
+    {
         push(a_head, b_head);
+    }
     // printf("ruminanted\n");
     // check_stacks(a_head, b_head);
     process_b(a_head, b_head);
