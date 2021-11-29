@@ -1,5 +1,31 @@
 #include "push_swap.h"
 
+void    do_command(char *buf, t_list  *a_head, t_list  *b_head)
+{
+    if(*buf == 's' && *(buf + 1) == 'a')
+        swap(a_head);
+    if(*buf == 's' && *(buf + 1) == 'b')
+        swap(b_head);
+    if(*buf == 's' && *(buf + 1) == 's')
+        ss(a_head, b_head);
+    if(*buf == 'p' && *(buf + 1) == 'a')
+        push(b_head, a_head);
+    if(*buf == 'p' && *(buf + 1) == 'b')
+        push(a_head, b_head);
+    if(*buf == 'r' && *(buf + 1) == 'a')
+        rotate(a_head);
+    if(*buf == 'r' && *(buf + 1) == 'b')
+        rotate(a_head);
+    if(*buf == 'r' && *(buf + 1) == 'r')
+        rr(a_head, b_head);
+    if(*buf == 'r' && *(buf + 1) == 'r' && *(buf + 2) == 'a')
+        rrr(a_head, b_head);
+    if(*buf == 'r' && *(buf + 1) == 'r' && *(buf + 2) == 'b')
+        rrr(a_head, b_head);
+    if(*buf == 'r' && *(buf + 1) == 'r' && *(buf + 2) == 'r')
+        rrr(a_head, b_head);
+}
+
 int main(int argc, char **argv)
 {
     t_list  *a_head;
@@ -19,7 +45,7 @@ int main(int argc, char **argv)
     ft_bzero(buf, 10);
     while(read(0, buf, 3))
     {
-        write(1, buf, 3);
+        do_command(buf, a_head, b_head);
         ft_bzero(buf, 10);
     }
 

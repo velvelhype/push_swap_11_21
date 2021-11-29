@@ -16,7 +16,7 @@ CC = gcc
 CFLAGS =
 SRCS = checker.c \
 pre_process.c \
-controls.c \
+silent_controls.c \
 prepare_list.c \
 checks.c \
 sorts.c \

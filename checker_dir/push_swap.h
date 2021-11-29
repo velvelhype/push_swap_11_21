@@ -32,9 +32,12 @@ void    tend_values(int len, t_list* list, t_list *ranking);
 
 //controls
 void    swap(t_list* head);
+void    ss(t_list *a_head, t_list *b_head);
 void    push(t_list* a_head, t_list* b_head);
 void    rotate(t_list *head);
+void    rr(t_list *a_head, t_list *b_head);
 void    r_rotate(t_list *head);
+void    rrr(t_list *a_head, t_list *b_head);
 
 // ss  : sa sb
 // rr  : ra rb
