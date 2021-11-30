@@ -155,6 +155,9 @@ void    push_min(t_list *a_head, t_list *b_head)
             rotate(a_head);
         else
             r_rotate(a_head);
+        
+        check_stacks(a_head, b_head);
+        
     }
 }
 

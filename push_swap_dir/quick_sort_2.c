@@ -36,9 +36,9 @@ void    init(t_list *a_head, t_list *b_head)
         }
         else
             rotate(a_head);
+        
+        check_stacks(a_head, b_head);
     }
-    // check_stacks(a_head, b_head);
-    // exit(1);
     process_b(a_head, b_head);
     ruminant(ruminant_count, a_head, b_head);
 }
@@ -62,9 +62,18 @@ void     cut_half(t_list *a_head, t_list *b_head)
         {
             push(b_head, a_head);
             shipment--;
+            
+        }
+        else if(b_head->next == find_min(b_head))
+        {
+            push(b_head, a_head);
+            rotate(a_head);
         }
         else
             rotate(b_head);
+
+        check_stacks(a_head, b_head);
+        
     }
     process_b(a_head, b_head);
     ruminant(ruminant_count, a_head, b_head);
@@ -92,7 +101,9 @@ void    ruminant(int ruminant_count, t_list *a_head, t_list *b_head)
             push(a_head, b_head);
     }
     // printf("ruminanted\n");
-    // check_stacks(a_head, b_head);
+
+    check_stacks(a_head, b_head);
+
     process_b(a_head, b_head);
 }
 
