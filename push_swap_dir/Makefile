@@ -12,7 +12,7 @@
 
 NAME = push_swap
 CC = gcc
-# CFLAGS = -Werror -Wall -Wextra
+CFLAGS = -Werror -Wall -Wextra
 CFLAGS =
 SRCS = checks.c \
 pre_process.c \
@@ -39,8 +39,8 @@ N = 100
 R = 100
 ARG:= $(shell python3 -c 'import random; random.seed($(R)); print(*random.sample([i for i in range(0, 100)], $(N)))')
 
-test:
-	@echo $(ARG)
+test: re
+	cd ./push_swap_tester && python3 push_swap_tester.py -l 100 -c 300
 
 clean:
 	rm -f $(OBJS)

@@ -37,6 +37,8 @@ void    init(t_list *a_head, t_list *b_head)
         else
             rotate(a_head);
     }
+    // check_stacks(a_head, b_head);
+    // exit(1);
     process_b(a_head, b_head);
     ruminant(ruminant_count, a_head, b_head);
 }
@@ -52,11 +54,11 @@ void     cut_half(t_list *a_head, t_list *b_head)
     ruminant_count = shipment;
 
     // printf("cut! %d\n", pivot);
-    // check_stack(b_head);
+    // check_stacks(b_head);
 
     while(shipment)
     {
-        if((b_head->next)->value > pivot)
+        if ((b_head->next)->value > pivot)
         {
             push(b_head, a_head);
             shipment--;
@@ -64,7 +66,6 @@ void     cut_half(t_list *a_head, t_list *b_head)
         else
             rotate(b_head);
     }
-
     process_b(a_head, b_head);
     ruminant(ruminant_count, a_head, b_head);
 }
@@ -85,7 +86,10 @@ void    ruminant(int ruminant_count, t_list *a_head, t_list *b_head)
 
     while(ruminant_count--)
     {
-        push(a_head, b_head);
+        if (a_head->prev->value + 1 == a_head->next->value)
+            rotate(a_head);
+        else
+            push(a_head, b_head);
     }
     // printf("ruminanted\n");
     // check_stacks(a_head, b_head);
@@ -103,7 +107,7 @@ void    clean_up(t_list *a_head, t_list *b_head)
 
 void    process_b(t_list *a_head, t_list *b_head)
 {
-    if(len_list(b_head) < CLEANING_VOL)
+    if (len_list(b_head) < 15)
         clean_up(a_head, b_head);
     else
         cut_half(a_head, b_head);
