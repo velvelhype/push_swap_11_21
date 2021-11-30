@@ -41,6 +41,7 @@ void    r_rotate(t_list *head);
 // rrr : rra rrb
 
 //sort
+void    two_sort(t_list *dum);
 int     is_sorted(t_list *a_head);
 void    push_min(t_list    *a_head, t_list *b_head);
 t_list* find_min(t_list *list);

@@ -42,13 +42,13 @@ void    three_sort(t_list *dum)
             rotate(dum);
         }
     }
-    if(one->value > two->value && one->value > three->value)
+    else if(one->value > two->value && one->value > three->value)
     {
         rotate(dum);
         if(two->value > three->value)
             swap(dum);
     }
-    if((two->value + three->value)/ 2 == one->value)
+    else if((two->value + three->value)/ 2 == one->value)
     {
         if(one->value > two->value)
             swap(dum);
