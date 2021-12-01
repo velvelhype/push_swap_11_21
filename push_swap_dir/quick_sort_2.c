@@ -118,7 +118,7 @@ void    clean_up(t_list *a_head, t_list *b_head)
 
 void    process_b(t_list *a_head, t_list *b_head)
 {
-    if (len_list(b_head) < 15)
+    if (len_list(b_head) < CLEANING_VOL)
         clean_up(a_head, b_head);
     else
         cut_half(a_head, b_head);

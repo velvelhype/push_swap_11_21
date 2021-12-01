@@ -9,7 +9,7 @@
 #define TRUE 1
 #define TRUE_A 3
 #define TRUE_B 4
-#define CLEANING_VOL 13
+#define CLEANING_VOL 15
 
 typedef struct t_list
 {
